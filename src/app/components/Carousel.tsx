@@ -5,7 +5,7 @@ import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { motion } from 'motion/react';
 
-interface CarouselProps {
+interface CarouselProps<T> {
     items: any[];
     component: (data: T, index: number) => React.ReactNode;
 }
