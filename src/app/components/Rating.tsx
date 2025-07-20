@@ -1,7 +1,7 @@
 import { Star } from 'lucide-react'
 
 interface RatingProps {
-    rating: string;
+    rating?: string;
 }
 const Rating = ({rating} : RatingProps) => {
   return (

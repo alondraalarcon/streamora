@@ -13,12 +13,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
+import { Show } from './types';
 
 export default function HomePage() {
   const TMDB_IMAGE_URL = process.env.NEXT_PUBLIC_TMDB_IMAGE_URL;
 
   const [topRatedTVShows, setTopRatedTVShows] = useState([]);
-  const [topRatedMovie, setTopRatedMovie] = useState(null);
+  const [topRatedMovie, setTopRatedMovie] =useState<Show | null>(null);
   const [topRatedMovieShows, setTopRatedMovieShows] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);

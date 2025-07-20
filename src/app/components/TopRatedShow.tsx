@@ -5,7 +5,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 
 interface showProps {
-  show: any[];
+  show: any;
   isLoading: boolean;
   url: string;
 }

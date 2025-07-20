@@ -3,7 +3,7 @@ import { User } from 'lucide-react';
 import React, { useState } from 'react';
 
 interface ReviewsProps {
-  reviews: any[];
+  reviews?: any[];
 }
 const Reviews = ({ reviews }: ReviewsProps) => {
     const [expandedReviewId, setExpandedReviewId] = useState<number | null>(null);
@@ -13,7 +13,7 @@ const Reviews = ({ reviews }: ReviewsProps) => {
   }
   return (
     <div className="flex flex-col gap-4  mt-5">
-      {reviews.map((value: any) => (
+      {reviews?.map((value: any) => (
         <div className="bg-zinc-900 rounded-xl p-5" key={value.id}>
           <div className="flex flex-row gap-2">
             <img

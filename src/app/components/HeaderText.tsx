@@ -1,10 +1,10 @@
 import React from 'react'
 
 interface HeaderTextProps {
-    size: string | null;
-    text: string;
-    weight: string | null;
-    color: string  | null;
+    size?: string;
+    text?: string;
+    weight?: string;
+    color?: string;
 }
 const HeaderText = ({size, text, weight, color ='text-zinc-300'} : HeaderTextProps) => {
   return (

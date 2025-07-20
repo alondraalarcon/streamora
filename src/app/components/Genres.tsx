@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface GenresProps {
-  genres: any[];
+  genres: string[];
 }
 const Genres = ({ genres }: GenresProps) => {
   return (

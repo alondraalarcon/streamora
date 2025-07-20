@@ -1,7 +1,5 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { fetchTopRatedMovies } from '../../services/moviesServices';
 import ListLoadingPlaceholder from '../../components/ListLoadingPlaceholder';
 import MovieItem from './MovieItem';
 import Carousel from '@/app/components/Carousel';
@@ -12,10 +10,9 @@ import Link from 'next/link';
 interface TopRatedProps {
     isLoading: boolean;
     items: any[];
-    returnTopTen?: boolean;
   }
 
-const TopRated = ({isLoading, items, returnTopTen}: TopRatedProps) => {
+const TopRated = ({isLoading, items}: TopRatedProps) => {
   return (
     <motion.div
       initial={{ y: 50, opacity: 0 }}
@@ -28,8 +25,6 @@ const TopRated = ({isLoading, items, returnTopTen}: TopRatedProps) => {
             <HeaderText
               color="text-zinc-400"
               text="Movies"
-              size={null}
-              weight={null}
             />
             <HeaderText
               size="text-4xl md:text-5xl"

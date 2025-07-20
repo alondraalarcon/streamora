@@ -6,11 +6,12 @@ import { withErrorHandling } from '../helpers/errorHandling';
 import Popular from './components/Popular';
 import TopRatedShow from '@/app/components/TopRatedShow';
 import TopRated from './components/TopRated';
+import { Show } from '../types';
 
 const page = () => {
   const [movies, setMovies] = useState([]);
   const [topRatedShows, setTopRatedShows] = useState([]);
-  const [topRatedShow, setTopRatedShow] = useState([]);
+  const [topRatedShow, setTopRatedShow] = useState<Show | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -55,7 +56,7 @@ const page = () => {
 
   return (
     <>
-        <TopRatedShow show={topRatedShow} isLoading={isLoading} url={`/movies/detail/${topRatedShow.id}`}/>
+        <TopRatedShow show={topRatedShow} isLoading={isLoading} url={`/movies/detail/${topRatedShow?.id}`}/>
         <div className="flex flex-col gap-10 p-10">
             <Popular isLoading={isLoading} items={movies}/>
             <TopRated isLoading={isLoading} items={topRatedShows}/>

@@ -27,8 +27,6 @@ const Popular = ({ isLoading, items }: PopularProps) => {
         <HeaderText
           color="text-zinc-400"
           text="Movies"
-          size={null}
-          weight={null}
         />
         <HeaderText
           size="text-5xl"

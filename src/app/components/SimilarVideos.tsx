@@ -3,13 +3,13 @@
 import Carousel from '@/app/components/Carousel';
 import ListLoadingPlaceholder from './ListLoadingPlaceholder';
 
-interface SimilarVideosProps{ 
+interface SimilarVideosProps<T>{ 
     videos:any[];
     isLoading: boolean;
     component: (data: T, index: number) => React.ReactNode;
 }
 
-const SimilarVideos = ({videos, isLoading, component} : SimilarVideosProps) => {
+export default function SimilarVideos<T>({ videos, isLoading, component }: SimilarVideosProps<T>) {
   return (
     <div className="flex flex-col">
       {isLoading ? (
@@ -28,5 +28,3 @@ const SimilarVideos = ({videos, isLoading, component} : SimilarVideosProps) => {
     </div>
   );
 };
-
-export default SimilarVideos;

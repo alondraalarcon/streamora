@@ -40,8 +40,6 @@ const TopRated = () => {
             <HeaderText
               color="text-zinc-400"
               text="TV Show"
-              size={null}
-              weight={null}
             />
             <HeaderText
               size="text-4xl md:text-5xl"

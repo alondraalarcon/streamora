@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import React from 'react';
 import Rating from '@/app/components/Rating';
+import { Show } from '@/app/types';
 
 interface MovieItemProps {
-  show: any;
+  show: Show;
 }
 const MovieItem = ({ show }: MovieItemProps) => {
   const TMDB_IMAGE_URL = process.env.NEXT_PUBLIC_TMDB_IMAGE_URL;

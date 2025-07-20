@@ -16,14 +16,13 @@ import HeaderText from '@/app/components/HeaderText';
 import Genres from '@/app/components/Genres';
 import TvShowItem from '../../components/TvShowItem';
 import { withErrorHandling } from '@/app/helpers/errorHandling';
+import { Show } from '@/app/types';
 
-interface TvShow {
-  show: any;
-}
 const TvPage = () => {
   const params = useParams();
-  const id = Array.isArray(params.id) ? params.id[0] : params.id;
-  const [show, setTvShow] = useState<TvShow | null>(null);
+  const rawId = Array.isArray(params.id) ? params.id[0] : params.id;
+  const id = rawId ? parseInt(rawId, 10) : undefined;
+  const [show, setTvShow] = useState<Show | null>(null);
   const [videos, setVideos] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [similarVideos, setSimilarVideos] = useState([]);
@@ -33,12 +32,11 @@ const TvPage = () => {
   const TMDB_IMAGE_URL = process.env.NEXT_PUBLIC_TMDB_IMAGE_URL;
 
   useEffect(() => {
-    if (!id) return;
-
-    fetchAll();
+    if (id === undefined || isNaN(id)) return;
+    fetchAll(id);
   }, []);
 
-  const fetchAll = async () => {
+  const fetchAll = async (id: number) => {
     try {
       const [tvShowData, reviewData, videoData, similarData] =
         await Promise.all([
@@ -111,12 +109,12 @@ const TvPage = () => {
               <HeaderText
                 size="text-7xl"
                 weight="font-black"
-                text={show?.name}
+                text={show?.name ?? ''}
                 color="text-zinc-300"
               />
               <div className="flex flex-row gap-1">
                 <span className="text-sm font-light">
-                  {show?.first_air_date.substring(0, 4)}
+                {show?.first_air_date?.substring(0, 4) ?? 'N/A'}
                 </span>
                 <span>
                   <Dot size={20} />
@@ -125,7 +123,7 @@ const TvPage = () => {
                   {show?.number_of_episodes} Episodes
                 </span>
               </div>
-              <Genres genres={show?.genres} />
+              <Genres genres={show?.genres ?? []} />
               <span className="text-sm/7 font-light w-4/6">
                 {show?.overview}
               </span>
@@ -150,7 +148,7 @@ const TvPage = () => {
                   size="text-4xl"
                   text="Reviews"
                   weight="font-black"
-                 color="text-zinc-300"
+                  color="text-zinc-300"
                 />
                 <Reviews reviews={reviews} />
               </div>

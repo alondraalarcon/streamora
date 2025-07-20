@@ -1,4 +1,5 @@
-export const withErrorHandling = async (fn: () => Promise<any>, message: string) => {
+export 
+const withErrorHandling = async (fn: () => Promise<any>, message: string) => {
   try {
     return await fn();
   } catch (err: any) {

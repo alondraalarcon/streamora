@@ -7,9 +7,9 @@ import { motion } from 'framer-motion';
 import HeaderText from '@/app/components/HeaderText';
 import ListLoadingPlaceholder from '@/app/components/ListLoadingPlaceholder';
 import Pagination from '@/app/components/Pagination';
-
+import { Show } from '@/app/types';
 const AllPage = () => {
-  const [shows, setShows] = useState([]);
+  const [shows, setShows] = useState<Show[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
@@ -49,8 +49,6 @@ const AllPage = () => {
           <HeaderText
             color="text-zinc-400"
             text="TV Shows"
-            size={null}
-            weight={null}
           />
           <HeaderText
             size="text-5xl"
